@@ -1,0 +1,85 @@
+name: Build + Deploy
+
+on:
+  push:
+    branches: [main]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    name: release binary (x86_64)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache dependencies
+        uses: Swatinem/rust-cache@v2
+
+      - name: Build release
+        run: cargo build --release
+
+      - name: Upload binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: rayakala-landing-${{ github.sha }}
+          path: target/release/rayakala-landing
+          retention-days: 14
+
+  deploy:
+    name: copy to VPS + restart
+    needs: build
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download binary
+        uses: actions/download-artifact@v4
+        with:
+          name: rayakala-landing-${{ github.sha }}
+          path: dist
+
+      - name: Setup SSH
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+          KNOWN_HOSTS: ${{ secrets.KNOWN_HOSTS }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+          PORT="${DEPLOY_PORT:-22}"
+          echo "DEPLOY_PORT=$PORT" >> "$GITHUB_ENV"
+          ssh-keygen -F "$DEPLOY_HOST" -f ~/.ssh/known_hosts >/dev/null \
+            || { echo "KNOWN_HOSTS does not contain $DEPLOY_HOST" >&2; exit 1; }
+
+      - name: Copy binary + installer to server
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+        run: |
+          set -euo pipefail
+          chmod +x dist/rayakala-landing scripts/install-release.sh
+          scp -P "${DEPLOY_PORT}" -o BatchMode=yes \
+            dist/rayakala-landing "${DEPLOY_USER}@${DEPLOY_HOST}:/tmp/rayakala-landing-new"
+          scp -P "${DEPLOY_PORT}" -o BatchMode=yes \
+            scripts/install-release.sh "${DEPLOY_USER}@${DEPLOY_HOST}:/tmp/install-release-landing.sh"
+
+      - name: Install + restart + healthcheck
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+        run: |
+          set -euo pipefail
+          ssh -p "${DEPLOY_PORT}" -o BatchMode=yes \
+            "${DEPLOY_USER}@${DEPLOY_HOST}" \
+            "sudo bash /tmp/install-release-landing.sh /tmp/rayakala-landing-new && rm -f /tmp/rayakala-landing-new /tmp/install-release-landing.sh"
