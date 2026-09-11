@@ -69,9 +69,9 @@ jobs:
         run: |
           set -euo pipefail
           chmod +x dist/rayakala-landing scripts/install-release.sh
-          scp -P "${DEPLOY_PORT}" -o BatchMode=yes \
+          scp -P "${DEPLOY_PORT}" -i ~/.ssh/deploy_key -o BatchMode=yes \
             dist/rayakala-landing "${DEPLOY_USER}@${DEPLOY_HOST}:/tmp/rayakala-landing-new"
-          scp -P "${DEPLOY_PORT}" -o BatchMode=yes \
+          scp -P "${DEPLOY_PORT}" -i ~/.ssh/deploy_key -o BatchMode=yes \
             scripts/install-release.sh "${DEPLOY_USER}@${DEPLOY_HOST}:/tmp/install-release-landing.sh"
 
       - name: Install + restart + healthcheck
@@ -80,6 +80,6 @@ jobs:
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
         run: |
           set -euo pipefail
-          ssh -p "${DEPLOY_PORT}" -o BatchMode=yes \
+          ssh -p "${DEPLOY_PORT}" -i ~/.ssh/deploy_key -o BatchMode=yes \
             "${DEPLOY_USER}@${DEPLOY_HOST}" \
             "sudo bash /tmp/install-release-landing.sh /tmp/rayakala-landing-new && rm -f /tmp/rayakala-landing-new /tmp/install-release-landing.sh"
