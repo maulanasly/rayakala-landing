@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Rayakala — personal homepage. Small tools, calm ledgers. Maker of Monthly Logs personal finance tracker and Beruang free investment calculators (XIRR, stocks, deposits).">
+    <meta name="description" content="Rayakala — personal homepage. I build small money tools: Monthly Logs, a monthly budget ledger, and Beruang, free investment calculators for XIRR, stocks, and deposits.">
     <meta name="theme-color" content="#1a3c34">
     <meta property="og:title" content="Rayakala — small tools, calm ledgers">
-    <meta property="og:description" content="Personal homepage of Rayakala. Projects: Monthly Logs money tracker and Beruang investment calculators — plus now and contact.">
+    <meta property="og:description" content="Personal homepage of Rayakala. Two live tools — Monthly Logs budget ledger and Beruang investment calculators — plus now and contact.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rayakala.ink/">
     <title>Rayakala — small tools, calm ledgers</title>
@@ -35,52 +35,43 @@
 
     <main id="main">
         <section class="hero wrap" id="top">
-            <p class="pill">● Jakarta · building ledger tools</p>
+            <p class="pill">● Jakarta · self-hosted on one VPS</p>
             <h1>Small tools,<br>calm ledgers.</h1>
-            <!-- PLACEHOLDER: replace tagline/bio with your own copy -->
-            <p class="lede">Hi, I&rsquo;m <strong>Rayakala</strong> — placeholder bio. I make lightweight, private-first tools for everyday money and notes. This page is intentionally tiny: Rust + vanilla JS, no framework.</p>
+            <p class="lede">Hi, I&rsquo;m <strong>Rayakala</strong>. I track my own money with tools I built myself — a monthly ledger and an investment calculator — and I put them online so anyone can use them. Everything here is small on purpose: Rust backends, plain HTML and JS, no trackers.</p>
             <div class="hero__actions">
                 <a class="btn" href="https://kalkulator.rayakala.ink" rel="noopener">Try the kalkulator</a>
                 <a class="btn btn--ghost" href="#projects">Explore projects</a>
-                <a class="btn btn--ghost" href="mailto:hello@rayakala.ink">Get in touch</a>
+                <a class="btn btn--ghost" href="mailto:socionomad@gmail.com">Get in touch</a>
             </div>
         </section>
 
         <section class="wrap section" id="about">
             <p class="smallcaps">About</p>
-            <h2>Calm software for personal finances.</h2>
-            <!-- PLACEHOLDER -->
-            <p>Placeholder paragraph 1: who you are, what you care about — e.g. simple budgeting, yearly planning, investment tracking without SaaS bloat.</p>
-            <p>Placeholder paragraph 2: how you work — e.g. Rust backends, zero-build frontends, self-hosted on a single VPS behind nginx.</p>
+            <h2>I build the tools I use.</h2>
+            <p>I got tired of not knowing where my money went each month, and of return figures that ignore timing. So I built a monthly ledger that records actual spending per category, and calculators that report XIRR — the return after accounting for when money went in and out.</p>
+            <p>Everything runs on a single VPS behind nginx: Rust backends, frontends with no framework and no build step, no trackers. If a tool doesn&rsquo;t need an account, it doesn&rsquo;t ask for one.</p>
             <ul class="chips" aria-label="Principles">
                 <li>light &amp; fast</li>
-                <li>private-first</li>
-                <li>craft over chrome</li>
+                <li>your data stays yours</li>
+                <li>no signup where possible</li>
             </ul>
         </section>
 
         <section class="wrap section" id="projects">
             <p class="smallcaps">Projects</p>
-            <h2>Things I&rsquo;ve made.</h2>
+            <h2>Live tools.</h2>
             <div class="cards">
                 <article class="card">
                     <h3>Monthly Logs</h3>
-                    <p>Personal finance ledger — monthly budgeting, yearly planning, investment tracking. Indonesian-first UI.</p>
+                    <p>My monthly budget ledger. Bulanan records what I actually spent per category, Tahunan shows the 12-month picture, and the dashboard totals it up. Entry is keyboard-driven — Enter moves down a row, Ctrl+S saves. Signs in with GitHub; your numbers live in your own database.</p>
                     <p class="tags"><span>Rust</span><span>Axum</span><span>SQLite</span><span>Preact/HTM</span></p>
                     <p><a href="https://money.rayakala.ink" rel="noopener">money.rayakala.ink →</a></p>
                 </article>
                 <article class="card">
                     <h3>Beruang — Kalkulator Investasi</h3>
-                    <p>Free investment calculators: mutual-fund XIRR, stock ROI + dividends with live IDX quotes, term-deposit APY + maturity tracker, and EV vs petrol break-even. No signup — data stays on your device. Indonesian-first, English alias included.</p>
+                    <p>The calculator I open before making investment decisions. XIRR on mutual funds from monthly deposits, stock returns with live IDX prices, deposit maturity dates so nothing rolls over unnoticed. No signup — what you type stays in your browser.</p>
                     <p class="tags"><span>Rust</span><span>Axum</span><span>Preact/HTM</span><span>IDX</span></p>
                     <p><a href="https://kalkulator.rayakala.ink" rel="noopener">kalkulator.rayakala.ink →</a></p>
-                </article>
-                <article class="card">
-                    <h3>Project Three — soon</h3>
-                    <!-- PLACEHOLDER -->
-                    <p>Placeholder: another slot for work, notes, or photography. Keep to three cards for balance.</p>
-                    <p class="tags"><span>idea</span></p>
-                    <p><a href="#contact">Tell me about it →</a></p>
                 </article>
             </div>
         </section>
@@ -88,11 +79,9 @@
         <section class="wrap section" id="now">
             <p class="smallcaps">Now</p>
             <h2>What I&rsquo;m up to.</h2>
-            <!-- PLACEHOLDER: update monthly -->
             <ul class="now-list">
-                <li><span>Building</span> — polishing Monthly Logs + Beruang kalkulator + this landing page.</li>
-                <li><span>Learning</span> — placeholder: e.g. SQLite tuning, nginx + TLS ops.</li>
-                <li><span>Reading</span> — placeholder: your current book / paper.</li>
+                <li><span>Building</span> — keeping Monthly Logs and Beruang running, and rewriting the copy on this page. September 2026.</li>
+                <li><span>Learning</span> — nginx and TLS ops on the VPS both apps share.</li>
             </ul>
             <p class="muted colophon">Colophon: this page is a single Axum binary (~2 MB) serving embedded HTML/CSS/vanilla JS. No tracker, no framework. Total transfer &lt; 50 KB.</p>
         </section>
@@ -100,12 +89,11 @@
         <section class="wrap section" id="links">
             <p class="smallcaps">Links</p>
             <h2>Find me elsewhere.</h2>
-            <!-- PLACEHOLDER: replace hrefs -->
             <ul class="link-row">
                 <li><a href="https://github.com/maulanasly" rel="noopener">GitHub →</a></li>
                 <li><a href="https://kalkulator.rayakala.ink" rel="noopener">Kalkulator →</a></li>
                 <li><a href="https://money.rayakala.ink" rel="noopener">Money app →</a></li>
-                <li><a href="mailto:hello@rayakala.ink">Email →</a></li>
+                <li><a href="mailto:socionomad@gmail.com">Email →</a></li>
                 <li><a href="/health">Health ✓</a></li>
             </ul>
         </section>
@@ -114,7 +102,7 @@
             <p class="smallcaps">Contact</p>
             <h2>Say hello.</h2>
             <p>The fastest way to reach me is email. No form, no queue — just write.</p>
-            <p><a class="btn" href="mailto:hello@rayakala.ink">hello@rayakala.ink</a></p>
+            <p><a class="btn" href="mailto:socionomad@gmail.com">socionomad@gmail.com</a></p>
         </section>
     </main>
 

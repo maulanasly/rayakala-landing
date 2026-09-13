@@ -24,10 +24,11 @@ scripts/      bootstrap / nginx / TLS / install / rollback
 docs/         DEPLOY.md
 ```
 
-## Customizing copy
+## Editing copy
 
-All placeholder text in `static/index.html` is marked `<!-- PLACEHOLDER -->`.
-Replace name, tagline, bio, projects, links, and `hello@rayakala.ink`.
+All page copy lives in `static/index.html`. Contact email is
+`socionomad@gmail.com`; live tools are `https://money.rayakala.ink/` and
+`https://kalkulator.rayakala.ink/`.
 
 ## Development
 
