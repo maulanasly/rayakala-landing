@@ -36,7 +36,7 @@ make verify   # clippy + fmt + tests (run before every commit)
 make build    # release binary
 ```
 
-Live app: `https://rayakala.ink/` (after DNS + TLS), money app stays at `https://money.rayakala.ink/`.
+Live app: `https://rayakala.ink/` (after DNS + TLS), money app stays at `https://money.rayakala.ink/`, investment calculators (Beruang) at `https://kalkulator.rayakala.ink/`.
 
 ## License
 
