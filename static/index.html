@@ -35,12 +35,12 @@
 
     <main id="main">
         <section class="hero wrap" id="top">
-            <p class="pill">● Jakarta · self-hosted on one VPS</p>
+            <p class="pill">● Jakarta · free tools, no signup needed</p>
             <h1>Small tools,<br>calm ledgers.</h1>
-            <p class="lede">Hi, I&rsquo;m <strong>Rayakala</strong>. I track my own money with tools I built myself — a monthly ledger and an investment calculator — and I put them online so anyone can use them. Everything here is small on purpose: Rust backends, plain HTML and JS, no trackers.</p>
+            <p class="lede">Hi, I&rsquo;m <strong>Rayakala</strong>. I track my own money with two tools I built: a monthly ledger and an investment calculator. Both are online and free for anyone to use, and Beruang doesn&rsquo;t even ask you to sign up.</p>
             <div class="hero__actions">
                 <a class="btn" href="https://kalkulator.rayakala.ink" rel="noopener">Try the kalkulator</a>
-                <a class="btn btn--ghost" href="#projects">Explore projects</a>
+                <a class="btn btn--ghost" href="#projects">See the tools</a>
                 <a class="btn btn--ghost" href="mailto:socionomad@gmail.com">Get in touch</a>
             </div>
         </section>
@@ -49,7 +49,7 @@
             <p class="smallcaps">About</p>
             <h2>I build the tools I use.</h2>
             <p>I got tired of not knowing where my money went each month, and of return figures that ignore timing. So I built a monthly ledger that records actual spending per category, and calculators that report XIRR — the return after accounting for when money went in and out.</p>
-            <p>Everything runs on a single VPS behind nginx: Rust backends, frontends with no framework and no build step, no trackers. If a tool doesn&rsquo;t need an account, it doesn&rsquo;t ask for one.</p>
+            <p>Both tools are free and Indonesian-first. Beruang runs without an account: what you type stays in your browser. Monthly Logs signs in with GitHub and keeps your numbers in your own database.</p>
             <ul class="chips" aria-label="Principles">
                 <li>light &amp; fast</li>
                 <li>your data stays yours</li>
@@ -80,8 +80,8 @@
             <p class="smallcaps">Now</p>
             <h2>What I&rsquo;m up to.</h2>
             <ul class="now-list">
-                <li><span>Building</span> — keeping Monthly Logs and Beruang running, and rewriting the copy on this page. September 2026.</li>
-                <li><span>Learning</span> — nginx and TLS ops on the VPS both apps share.</li>
+                <li><span>Building</span> — keeping Monthly Logs and Beruang running for daily use. September 2026.</li>
+                <li><span>Learning</span> — return math done right: XIRR vs time-weighted return, dividend-adjusted prices.</li>
             </ul>
             <p class="muted colophon">Colophon: this page is a single Axum binary (~2 MB) serving embedded HTML/CSS/vanilla JS. No tracker, no framework. Total transfer &lt; 50 KB.</p>
         </section>
@@ -101,7 +101,7 @@
         <section class="wrap section contact" id="contact">
             <p class="smallcaps">Contact</p>
             <h2>Say hello.</h2>
-            <p>The fastest way to reach me is email. No form, no queue — just write.</p>
+            <p>Email is the fastest way to reach me. Just write.</p>
             <p><a class="btn" href="mailto:socionomad@gmail.com">socionomad@gmail.com</a></p>
         </section>
     </main>
@@ -109,7 +109,7 @@
     <footer class="site-footer">
         <div class="wrap site-footer__inner">
             <p>© <span id="year">2026</span> Rayakala · rayakala.ink</p>
-            <p class="muted">Built with Rust + vanilla JS behind nginx · <a href="/health">health</a></p>
+            <p class="muted">Built with Rust + vanilla JS · <a href="/health">health</a></p>
         </div>
     </footer>
 
