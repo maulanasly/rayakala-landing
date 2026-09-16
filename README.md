@@ -1,6 +1,6 @@
 # Rayakala Landing
 
-Personal homepage for **rayakala.ink** + **rayakala.id** — intentionally light.
+Personal homepage for **rayakala.id** (canonical, + **rayakala.ink** alias) — intentionally light.
 
 Stack: **Rust (Axum 0.8) + vanilla HTML/CSS/JS** (no npm, no bundler, no DB).
 Static files are embedded into a single ~2 MB binary via `rust-embed`, served behind nginx.
@@ -28,7 +28,7 @@ docs/         DEPLOY.md
 
 All page copy lives in `static/index.html`. Contact email is
 `socionomad@gmail.com`; live tools are `https://money.rayakala.ink/` and
-`https://kalkulator.rayakala.ink/`.
+`https://hitung.rayakala.id/`.
 
 ## Development
 
@@ -37,7 +37,7 @@ make verify   # clippy + fmt + tests (run before every commit)
 make build    # release binary
 ```
 
-Live app: `https://rayakala.ink/` + `https://rayakala.id/` (same binary, both apex+www behind nginx), money app stays at `https://money.rayakala.ink/`, investment calculators (Beruang) at `https://kalkulator.rayakala.ink/`.
+Live app: `https://rayakala.id/` (canonical; `https://rayakala.ink/` aliases the same binary, both apex+www behind nginx), money app stays at `https://money.rayakala.ink/`, investment calculators (Beruang) at `https://hitung.rayakala.id/`.
 
 ## License
 
