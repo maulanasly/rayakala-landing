@@ -3,7 +3,7 @@ name = "rayakala-landing"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
-description = "Light personal landing page for rayakala.ink — Axum + vanilla JS behind nginx"
+description = "Light personal landing page for rayakala.ink + rayakala.id — Axum + vanilla JS behind nginx"
 
 [dependencies]
 axum = "0.8"

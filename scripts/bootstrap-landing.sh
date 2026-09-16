@@ -40,7 +40,7 @@ else
   echo "warning: rayakala-landing.service not found — install it manually" >&2
 fi
 
-echo "==> nginx second site (apex+www -> 127.0.0.1:5001, keeps money site)"
+echo "==> nginx second site (apex+www for .ink + .id -> 127.0.0.1:5001, keeps money site)"
 NGINX_SETUP=""
 for cand in "$SCRIPT_DIR/setup-nginx.sh" "$SCRIPT_DIR/../scripts/setup-nginx.sh" /tmp/setup-nginx.sh; do
   if [ -f "$cand" ]; then NGINX_SETUP="$cand"; break; fi
@@ -51,4 +51,4 @@ else
   echo "warning: setup-nginx.sh not found — run it manually" >&2
 fi
 
-echo "Bootstrap OK. Next: push to main (CD installs), then curl http://rayakala.ink/health"
+echo "Bootstrap OK. Next: push to main (CD installs), then curl http://rayakala.ink/health and http://rayakala.id/health"

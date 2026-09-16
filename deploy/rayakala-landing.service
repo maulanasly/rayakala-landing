@@ -1,5 +1,5 @@
 [Unit]
-Description=Rayakala landing page for rayakala.ink
+Description=Rayakala landing page for rayakala.ink + rayakala.id
 After=network.target
 
 [Service]

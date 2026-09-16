@@ -5,7 +5,8 @@ Flow: `push to main` → Actions builds `target/release/rayakala-landing` on
 installs, restarts `rayakala-landing.service`, healthchecks `:5001`.
 
 Co-exists with `monthly-logs` (`money.rayakala.ink` → `:5000`). This app uses
-`:5001` and serves `rayakala.ink` + `www.rayakala.ink`. No DB.
+`:5001` and serves `rayakala.ink` + `www.rayakala.ink` + `rayakala.id` +
+`www.rayakala.id` (same binary, same nginx site). No DB.
 
 ## One-time setup
 
@@ -64,7 +65,8 @@ shred -u /tmp/github-deploy-rayakala
 Verify:
 
 ```bash
-curl -f http://43.173.12.145/health -H "Host: rayakala.ink"   # via nginx
+curl -f http://43.173.12.145/health -H "Host: rayakala.ink"   # via nginx (.ink)
+curl -f http://43.173.12.145/health -H "Host: rayakala.id"    # via nginx (.id)
 curl -f http://43.173.12.145:5001/health                      # direct (until closed)
 ssh deploy@43.173.12.145 "sudo systemctl status rayakala-landing --no-pager"
 ```
@@ -72,17 +74,26 @@ ssh deploy@43.173.12.145 "sudo systemctl status rayakala-landing --no-pager"
 ## nginx (second site)
 
 `deploy/nginx-rayakala-landing.conf` → `/etc/nginx/...` proxies `:80` for
-`rayakala.ink + www` to `127.0.0.1:5001`. Refresh with:
+`rayakala.ink + www + rayakala.id + www` to `127.0.0.1:5001`. Refresh with:
 
 ```bash
 scp scripts/setup-nginx.sh deploy/nginx-rayakala-landing.conf root@43.173.12.145:/tmp/
 ssh root@43.173.12.145 "bash /tmp/setup-nginx.sh"
 ```
 
-## Domain + TLS (apex + www)
+## Domain + TLS (apex + www, .ink + .id)
 
-DNS: `www.rayakala.ink` → `43.173.12.145` ✅ already; add `A @ -> 43.173.12.145`
-for apex (currently missing).
+DNS (all `A` → `43.173.12.145`):
+
+| Host | Status |
+|---|---|
+| `www.rayakala.ink` | ✅ already |
+| `rayakala.ink` (`@`) | add if missing |
+| `rayakala.id` (`@`) | **new — add** |
+| `www.rayakala.id` | **new — add** |
+
+Page content stays canonical on `.ink` (`og:url`, `robots.txt`) to avoid
+duplicate-content split; `.id` serves the identical binary as an alias.
 
 Run once as `root` (needs `tcp/80` + `tcp/443` open):
 
@@ -91,13 +102,18 @@ scp deploy/nginx-rayakala-landing.conf scripts/setup-nginx.sh scripts/setup-tls.
 ssh root@43.173.12.145 "bash /tmp/setup-nginx.sh && DOMAIN=rayakala.ink EMAIL=gi.creatorz@gmail.com bash /tmp/setup-tls.sh"
 ```
 
-`setup-tls.sh` defaults to `-d rayakala.ink -d www.rayakala.ink --redirect`.
+`setup-tls.sh` defaults to `-d rayakala.ink -d www.rayakala.ink -d rayakala.id -d www.rayakala.id --redirect`.
+To expand an existing cert (already issued for `.ink` only), just re-run the
+same command — certbot `--nginx` will expand it to cover all four names.
 Verify:
 
 ```bash
 curl -f https://rayakala.ink/health
 curl -f https://www.rayakala.ink/health
+curl -f https://rayakala.id/health
+curl -f https://www.rayakala.id/health
 curl -I http://rayakala.ink/   # expect 301 → https
+curl -I http://rayakala.id/    # expect 301 → https
 ```
 
 Then keep `:5001` on localhost only behind nginx. `money.rayakala.ink` untouched.
@@ -120,6 +136,6 @@ Restores `/usr/local/bin/rayakala-landing.prev`, restarts + healthchecks.
 | `scripts/rollback.sh` | restore `.prev` binary |
 | `scripts/bootstrap-landing.sh` | one-time VPS setup (root) |
 | `scripts/setup-nginx.sh` | install second nginx site (root) |
-| `scripts/setup-tls.sh` | Let's Encrypt cert for apex+www (root) |
+| `scripts/setup-tls.sh` | Let's Encrypt cert for .ink apex+www + .id apex+www (root) |
 | `deploy/rayakala-landing.service` | systemd unit (`rayakala-landing` user, `:5001`) |
 | `deploy/nginx-rayakala-landing.conf` | nginx site: `:80` (+`:443` after TLS) → `127.0.0.1:5001` |
