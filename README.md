@@ -27,7 +27,7 @@ docs/         DEPLOY.md
 ## Editing copy
 
 All page copy lives in `static/index.html`. Contact email is
-`socionomad@gmail.com`; live tools are `https://money.rayakala.ink/` and
+`socionomad@gmail.com`; live tools are `https://kas.rayakala.id/` and
 `https://hitung.rayakala.id/`.
 
 ## Development
@@ -37,7 +37,7 @@ make verify   # clippy + fmt + tests (run before every commit)
 make build    # release binary
 ```
 
-Live app: `https://rayakala.id/` (canonical; `https://rayakala.ink/` aliases the same binary, both apex+www behind nginx), money app stays at `https://money.rayakala.ink/`, investment calculators (Beruang) at `https://hitung.rayakala.id/`.
+Live app: `https://rayakala.id/` (canonical; `https://rayakala.ink/` aliases the same binary, both apex+www behind nginx), money app (Kas) at `https://kas.rayakala.id/` (legacy `https://money.rayakala.ink/`), investment calculators (Beruang) at `https://hitung.rayakala.id/`.
 
 ## License
 

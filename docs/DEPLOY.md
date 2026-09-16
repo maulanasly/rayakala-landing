@@ -95,7 +95,7 @@ DNS (all `A` → `43.173.12.145`):
 Page content is canonical on `.id` (`og:url`, `robots.txt` sitemap, footer);
 `.ink` serves the identical binary as an alias. Outbound tool links point at
 the newest domains: Beruang kalkulator at `https://hitung.rayakala.id/`,
-money app at `https://money.rayakala.ink/` (no `.id` for money yet).
+money app (Kas) at `https://kas.rayakala.id/` (legacy `money.rayakala.ink`).
 
 Run once as `root` (needs `tcp/80` + `tcp/443` open):
 
