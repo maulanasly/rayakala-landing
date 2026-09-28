@@ -27,7 +27,7 @@ docs/         DEPLOY.md
 ## Editing copy
 
 All page copy lives in `static/index.html`. Contact email is
-`socionomad@gmail.com`; live tools are `https://kas.rayakala.id/` and
+`support@rayakala.id`; live tools are `https://kas.rayakala.id/` and
 `https://hitung.rayakala.id/`.
 
 ## Development
