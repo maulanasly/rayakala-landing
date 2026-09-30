@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#faf8f3"/>
+  <rect x="56" y="56" width="1088" height="518" rx="28" fill="none" stroke="#e7e0d3" stroke-width="3"/>
+  <g transform="translate(600 250)">
+    <rect x="-44" y="-44" width="88" height="88" rx="20" fill="#1a3c34"/>
+    <text x="0" y="18" font-family="Georgia, serif" font-size="52" fill="#faf8f3" text-anchor="middle">&#9670;</text>
+  </g>
+  <text x="600" y="408" font-family="system-ui, -apple-system, sans-serif" font-size="92" font-weight="800" fill="#1c1917" text-anchor="middle" letter-spacing="-3">Rayakala</text>
+  <text x="600" y="470" font-family="ui-monospace, monospace" font-size="32" fill="#6b655a" text-anchor="middle" letter-spacing="1">small tools, calm ledgers</text>
+</svg>

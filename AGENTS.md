@@ -17,7 +17,7 @@ src/lib.rs / src/routes/ # create_router() — /health + fallback static handler
 src/routes/health.rs     # GET /health -> {"status":"ok"}
 src/routes/static_handler.rs # rust-embed from static/, mime_guess, cache headers
 static/index.html        # ALL page copy lives here
-static/css/site.css static/js/site.js favicon.svg robots.txt
+static/css/site.css static/js/site.js favicon.svg robots.txt sitemap.xml og.png (og.svg source)
 tests/health_test.rs tests/static_test.rs
 deploy/                  # systemd unit + nginx site (apex+www -> 127.0.0.1:5001)
 scripts/                 # bootstrap-landing, setup-nginx, setup-tls, install-release, rollback
@@ -39,7 +39,7 @@ CD (`.github/workflows/deploy.yml`): build on ubuntu-24.04 → SCP → `install-
 
 ## Conventions for agents
 
-1. **Copy:** edit only `static/index.html`. Contact `support@rayakala.id`. Live tools: `https://kas.rayakala.id/` (legacy `https://money.rayakala.ink/`), `https://hitung.rayakala.id/`. Canonical URL `https://rayakala.id/` for `og:url`, sitemap, footer.
+1. **Copy:** edit only `static/index.html`. Contact `support@rayakala.id`. Live tools: `https://kas.rayakala.id/` (legacy `https://money.rayakala.ink/`), `https://hitung.rayakala.id/`. Canonical URL `https://rayakala.id/` for `og:url`, `og:image`, sitemap, footer.
 2. **Routes:** add in `src/routes/` + register in `create_router()` (`src/routes/mod.rs`). Keep `/health` exact JSON shape. CORS is `Any/Any/Any` — don't tighten without reason.
 3. **Static serving (`static_handler.rs`):**
    - `/` → `index.html` with `text/html; charset=utf-8`, `cache-control: no-cache`.

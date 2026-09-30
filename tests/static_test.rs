@@ -58,3 +58,28 @@ async fn unknown_file_path_is_404_but_clean_route_falls_back() {
     let res = get("/about").await;
     assert_eq!(res.status(), axum::http::StatusCode::OK);
 }
+
+#[tokio::test]
+async fn seo_assets_served() {
+    let res = get("/sitemap.xml").await;
+    assert_eq!(res.status(), axum::http::StatusCode::OK);
+    let ct = res
+        .headers()
+        .get("content-type")
+        .unwrap()
+        .to_str()
+        .unwrap()
+        .to_owned();
+    assert!(ct.contains("xml"), "ct={ct}");
+
+    let res = get("/og.png").await;
+    assert_eq!(res.status(), axum::http::StatusCode::OK);
+    let ct = res
+        .headers()
+        .get("content-type")
+        .unwrap()
+        .to_str()
+        .unwrap()
+        .to_owned();
+    assert!(ct.contains("image/png"), "ct={ct}");
+}

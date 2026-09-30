@@ -71,6 +71,7 @@ a{color:var(--ledger)}
   border-radius:999px;padding:6px 12px;color:var(--muted);
   margin-bottom:16px;
 }
+.pill__dot{color:var(--accent)}
 .hero h1{
   font-size:clamp(2.2rem,6vw,3.2rem);
   letter-spacing:-.03em;line-height:1.05;font-weight:800;
@@ -82,7 +83,7 @@ a{color:var(--ledger)}
 
 /* Sections */
 .section{padding:28px 20px}
-.section h2{font-size:24px;letter-spacing:-.02em;margin-bottom:10px}
+.section h2{font-size:clamp(20px,4vw,24px);letter-spacing:-.02em;margin-bottom:10px}
 .section p{margin-bottom:12px;max-width:62ch}
 .smallcaps{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:6px}
 .muted{color:var(--muted)}
@@ -104,7 +105,7 @@ a{color:var(--ledger)}
 .colophon{font-size:13px;margin-top:14px}
 .link-row{list-style:none;display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
 .link-row a{display:inline-block;background:var(--surface);border:1px solid var(--hairline);border-radius:999px;padding:8px 14px;font-size:14px;text-decoration:none}
-.link-row a:hover{border-color:var(--ledger)}
+.link-row a:hover{border-color:var(--ledger);color:var(--ledger)}
 .contact{margin-bottom:24px}
 
 /* Reveal */
@@ -130,6 +131,7 @@ a{color:var(--ledger)}
     --hairline-strong:#3d3833;
     --ledger:#7fc4ad;
     --ledger-hover:#96d3bd;
+    --accent:#f59e0b;
   }
   .site-header{background:rgba(20,18,16,.92)}
   .btn{background:var(--ledger);border-color:var(--ledger);color:#10201b}
