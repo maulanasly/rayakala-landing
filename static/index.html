@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Rayakala — personal homepage. I build small money tools: Monthly Logs, a monthly budget ledger, and Beruang, 8 free calculators for XIRR, stocks, deposits, rent-vs-buy, loans, debt payoff, and retirement.">
+    <meta name="description" content="Eight free Beruang calculators for Indonesian money decisions, plus Monthly Logs, a spending ledger for approved GitHub accounts.">
     <meta name="theme-color" content="#1a3c34">
-    <meta property="og:title" content="Rayakala — small tools, calm ledgers">
-    <meta property="og:description" content="Personal homepage of Rayakala. Two live tools — Monthly Logs budget ledger and Beruang investment calculators — plus now and contact.">
+    <meta property="og:title" content="Rayakala — tools for clearer money decisions">
+    <meta property="og:description" content="Eight free calculators for Indonesian money decisions; Monthly Logs is a spending ledger for approved GitHub accounts.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rayakala.id/">
     <meta property="og:image" content="https://rayakala.id/og.png">
@@ -14,7 +14,7 @@
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://rayakala.id/og.png">
-    <title>Rayakala — small tools, calm ledgers</title>
+    <title>Rayakala — tools for clearer money decisions</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="/css/site.css">
 </head>
@@ -29,52 +29,64 @@
             </a>
             <nav class="site-nav" aria-label="Primary">
                 <a href="#about">About</a>
-                <a href="#projects">Projects</a>
+                <a href="#projects">Tools</a>
                 <a href="#now">Now</a>
                 <a href="#contact">Contact</a>
             </nav>
-            <a class="btn btn--small" href="https://hitung.rayakala.id" rel="noopener">Open Kalkulator →</a>
+            <a class="btn btn--small" href="https://hitung.rayakala.id" rel="noopener">Open Beruang →</a>
         </div>
     </header>
 
     <main id="main">
         <section class="hero wrap" id="top">
             <p class="pill"><span class="pill__dot" aria-hidden="true">●</span> monthly ledger + 8 free calculators</p>
-            <h1>Small tools,<br>calm ledgers.</h1>
-            <p class="lede">Hi, I&rsquo;m <strong>Rayakala</strong>. I track my own money with two tools I built: Monthly Logs, a monthly budget ledger, and Beruang, a suite of eight investment calculators. Both are free — Beruang doesn&rsquo;t even ask you to sign up.</p>
+            <h1>Clearer numbers for everyday money decisions.</h1>
+            <p class="lede">Track monthly spending with Monthly Logs or use Beruang&rsquo;s eight calculators to compare investments, vehicle costs, housing, debt and retirement.</p>
+            <p class="hero__note">Beruang needs no account. Portfolio notes are saved in your browser; calculation inputs are sent to the server when you calculate. Monthly Logs is limited to approved GitHub accounts.</p>
             <div class="hero__actions">
-                <a class="btn" href="https://hitung.rayakala.id" rel="noopener">Try the kalkulator</a>
-                <a class="btn btn--ghost" href="#projects">See the tools</a>
+                <a class="btn" href="https://hitung.rayakala.id" rel="noopener">Explore Beruang calculators →</a>
+                <a class="btn btn--ghost" href="https://kas.rayakala.id" rel="noopener">Sign in to Monthly Logs →</a>
             </div>
         </section>
 
         <section class="wrap section" id="about">
             <p class="smallcaps">About</p>
-            <h2>I build the tools I use.</h2>
-            <p>I got tired of not knowing where my money went each month, and of return figures that ignore timing. So I built Monthly Logs, a ledger that records actual spending per category, and Beruang, calculators that report XIRR — the return after accounting for when money went in and out.</p>
-            <p>Both tools are free and Indonesian-first. Beruang runs without an account: what you type stays in your browser. Monthly Logs signs in with GitHub and keeps your numbers in your own account.</p>
+            <h2>Built from everyday money questions.</h2>
+            <p>I got tired of not knowing where my money went each month, and of return figures that ignore when money was invested. Monthly Logs tracks actual spending by category; Beruang calculates XIRR, an annualized return that accounts for when money goes in and out.</p>
+            <p>Both tools are designed around Indonesian money workflows: Monthly Logs uses Indonesian ledger labels, and Beruang includes IDX stock quotes.</p>
             <ul class="chips" aria-label="Principles">
                 <li>light &amp; fast</li>
-                <li>your data stays yours</li>
-                <li>no account to calculate</li>
+                <li>clear data handling</li>
+                <li>no account for Beruang</li>
             </ul>
         </section>
 
         <section class="wrap section" id="projects">
-            <p class="smallcaps">Projects</p>
-            <h2>Two live tools.</h2>
+            <p class="smallcaps">Tools</p>
+            <h2>Choose a tool for what you need.</h2>
             <div class="cards">
                 <article class="card">
+                    <p class="card__eyebrow">Monthly spending ledger</p>
                     <h3>Monthly Logs</h3>
-                    <p>My monthly budget ledger. Bulanan records what I actually spent per category, Tahunan shows the 12-month picture, and the dashboard totals it up. Entry is keyboard-driven — Enter moves down a row, Ctrl+S saves. Signs in with GitHub; your numbers stay in your own account.</p>
-                    <p class="tags"><span>Rust</span><span>Axum</span><span>SQLite</span><span>Preact/HTM</span></p>
-                    <p><a href="https://kas.rayakala.id" rel="noopener">Open Monthly Logs →</a></p>
+                    <p>Track actual spending by category in Bulanan (monthly), then review the 12-month picture in Tahunan (annual).</p>
+                    <p class="card__meta">GitHub sign-in · Approved accounts only · Your numbers are stored in your own database.</p>
+                    <p class="card__action"><a class="btn btn--small" href="https://kas.rayakala.id" rel="noopener">Sign in to Monthly Logs →</a></p>
                 </article>
                 <article class="card">
-                    <h3>Beruang — Kalkulator Investasi</h3>
-                    <p>Eight calculators I open before money decisions: XIRR on mutual funds, stocks with live IDX prices, deposit maturity dates, rent-vs-buy breakeven, flat-loan true cost, debt payoff plans, and retirement targets. No signup — what you type stays in your browser.</p>
-                    <p class="tags"><span>Rust</span><span>Axum</span><span>Preact/HTM</span><span>IDX</span></p>
-                    <p><a href="https://hitung.rayakala.id" rel="noopener">Open the kalkulator →</a></p>
+                    <p class="card__eyebrow">Eight free calculators</p>
+                    <h3>Beruang</h3>
+                    <ul class="tool-list" aria-label="The eight Beruang calculators">
+                        <li>Mutual-fund returns (XIRR)</li>
+                        <li>Stocks (IDX quotes)</li>
+                        <li>Term deposits</li>
+                        <li>EV vs. petrol costs</li>
+                        <li>Rent vs. buy</li>
+                        <li>Flat-rate loans</li>
+                        <li>Debt payoff</li>
+                        <li>Retirement planning</li>
+                    </ul>
+                    <p class="card__meta">No account required. Portfolio notes are saved in your browser; calculation inputs are sent to the server when you calculate. IDX quotes may be delayed.</p>
+                    <p class="card__action"><a class="btn btn--small" href="https://hitung.rayakala.id" rel="noopener">Explore all 8 calculators →</a></p>
                 </article>
             </div>
         </section>
@@ -83,7 +95,7 @@
             <p class="smallcaps">Now</p>
             <h2>What I&rsquo;m up to.</h2>
             <ul class="now-list">
-                <li><span>Building</span> — keeping Monthly Logs and Beruang running for daily use. September 2026.</li>
+                <li><span>Building</span> — keeping Monthly Logs and Beruang running for daily use. October 2026.</li>
                 <li><span>Learning</span> — return math done right: XIRR vs time-weighted return, dividend-adjusted prices.</li>
             </ul>
             <p class="muted colophon">Colophon: this page is a single Axum binary (~2 MB) serving embedded HTML/CSS/vanilla JS. No tracker, no framework. Total transfer &lt; 50 KB.</p>
@@ -94,8 +106,8 @@
             <h2>Around the web.</h2>
             <ul class="link-row">
                 <li><a href="https://github.com/maulanasly" rel="noopener">GitHub →</a></li>
-                <li><a href="https://hitung.rayakala.id" rel="noopener">Kalkulator →</a></li>
-                <li><a href="https://kas.rayakala.id" rel="noopener">Money app →</a></li>
+                <li><a href="https://hitung.rayakala.id" rel="noopener">Beruang calculators →</a></li>
+                <li><a href="https://kas.rayakala.id" rel="noopener">Monthly Logs →</a></li>
                 <li><a href="mailto:support@rayakala.id">Email →</a></li>
             </ul>
         </section>
@@ -111,7 +123,7 @@
     <footer class="site-footer">
         <div class="wrap site-footer__inner">
             <p>© <span id="year">2026</span> Rayakala · rayakala.id</p>
-            <p class="muted">Built with Rust + vanilla JS · <a href="/health">health</a></p>
+            <p class="muted">Built with Rust + vanilla JS</p>
         </div>
     </footer>
 
