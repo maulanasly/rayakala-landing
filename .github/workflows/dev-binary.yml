@@ -35,9 +35,9 @@ jobs:
       - name: Package binary and checksum
         run: |
           mkdir -p dist
-          archive="$PWD/dist/rayakala-landing-dev-linux-x86_64-${GITHUB_SHA}.tar.gz"
-          tar -czf "$archive" -C target/release rayakala-landing
-          sha256sum "$archive" > "${archive}.sha256"
+          archive="rayakala-landing-dev-linux-x86_64-${GITHUB_SHA}.tar.gz"
+          tar -czf "$PWD/dist/$archive" -C target/release rayakala-landing
+          (cd dist && sha256sum "$archive" > "$archive.sha256")
 
       - name: Upload development artifact
         uses: actions/upload-artifact@v4
